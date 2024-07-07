@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import {Package2Icon, BellIcon, HomeIcon, FileTextIcon, LineChartIcon} from 'lucide-react'
+import {Package2Icon, BellIcon, HomeIcon, FileTextIcon, LineChartIcon, BookMarked} from 'lucide-react'
 import { Button } from './ui/button'
 import ThemeSelector from './theme-selector'
 import {usePathname} from 'next/navigation'
@@ -53,6 +53,16 @@ const Sidebar = () => {
               >
                 <LineChartIcon className="h-4 w-4" />
                 Analytics
+              </Link>
+              <Link
+                href="/docs"
+                className={`flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary ${
+                  pathName === '/docs' && 'bg-muted text-primary '
+                }`}
+                prefetch={false}
+              >
+                <BookMarked className="h-4 w-4" />
+                Docs
               </Link>
             </nav>
           </div>
