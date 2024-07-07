@@ -50,11 +50,15 @@ export const getTransactions = async (query?: {startDate?: number, finishDate?: 
   try {
     await connectToDatabase();
 
+    const {sessionClaims} = auth();
+    const user = sessionClaims?.userId as string;
+
+
     const createdAt: any = {}
     if (query.startDate) {createdAt.$gte = query.startDate;}
     if (query.finishDate) {createdAt.$lte = query.finishDate;}
 
-    const findQuery: any = {}
+    const findQuery: any = {user}
     if (query.startDate || query.finishDate) findQuery.createdAt = createdAt
     if (query.category) {findQuery.category = query.category}
 

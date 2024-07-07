@@ -1,6 +1,6 @@
 'use server'
 
-import {getTransactions, getTransactionsCached} from './transaction.actions'
+import {getTransactionsCached} from './transaction.actions'
 
 export const getDashboardData = async () => {
   try {
@@ -20,7 +20,7 @@ export const getDashboardData = async () => {
     const date = new Date();
     date.setFullYear(date.getFullYear() - 1)
     
-    const lastYearTransactions = await getTransactions({startDate: date.getDate()});
+    const lastYearTransactions = await getTransactionsCached({startDate: date.getDate()});
 
     const data = Array.from({length: 12}, (_, i) => {
       const d = new Date()
