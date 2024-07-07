@@ -28,6 +28,7 @@ export const getKey = () => {
 export const getEncryptedTransactions = async (encryptedKey: string, limit: number = 10) => {
   try {
     const user = decrypt(encryptedKey)
+    console.log(user, 'decrypted user')
     const transactions = await Transaction.find({user}).sort({createdAt: 'desc'}).limit(limit).select('-_id -user -__v').exec()
     return {transactions}
   } catch (e) {
