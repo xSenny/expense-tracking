@@ -32,6 +32,7 @@ export const getEncryptedTransactions = async (encryptedKey: string, limit: numb
     const transactions = await Transaction.find({user}).sort({createdAt: 'desc'}).limit(limit).select('-_id -user -__v').exec()
     return {transactions}
   } catch (e) {
+    console.log(e)
     throw new Error('Error receiving your transactions. Make sure you use the correct Authorization value.')
   }
 }
