@@ -29,8 +29,8 @@ const DocsPage = async () => {
         <Code code={axiosCode} />
       </div>
       <div className="flex flex-col gap-2">
-        <h2 className="text-xl font-bold">Length parameter</h2>
-        <p className="text-secondary-foreground">Specify the number of transactions to retrieve. The default is 10. Example: ?length=6</p>
+        <h2 className="text-xl font-bold">Limit parameter</h2>
+        <p className="text-secondary-foreground">Specify the number of transactions to retrieve. The default is 10. Example: ?limit=6</p>
       </div>
       <div className="flex flex-col gap-2">
         <h2 className="text-xl font-bold">Response</h2>
@@ -55,7 +55,7 @@ ${HOSTNAME}/api/transactions
 `
 const fetchCode = `
 \`\`\`js
-const url = '${HOSTNAME}/api/transactions?length=5';
+const url = '${HOSTNAME}/api/transactions?limit=5';
 
 fetch(url, {
   method: 'GET',
@@ -74,7 +74,7 @@ const axiosCode = `
 \`\`\`js
 const axios = require('axios');
 
-const url = '${HOSTNAME}/api/transactions?length=5';
+const url = '${HOSTNAME}/api/transactions?limit=5';
 const config = {
   headers: {
     'Authorization': 'YOUR_AUTH_TOKEN',

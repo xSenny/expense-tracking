@@ -30,7 +30,7 @@ export const createTransaction = async(transaction: CreateTransactionProps) => {
   }
 }
 
-const getTransactions = async (query?: {startDate?: number, finishDate?: number, category?: string}) => {
+export const getTransactions = async (query?: {startDate?: number, finishDate?: number, category?: string}) => {
   if (!query) {
     try {
       const {sessionClaims} = auth();
