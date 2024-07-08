@@ -15,12 +15,10 @@ import {
 
 
 const chartConfig = {
-  visitors: {
-    label: "Visitors",
-  },
+
   income: {
     label: "Income",
-    color: "hsl(var(--chart-1))",
+    color: "hsl(var(--chart-5))",
   },
   expense: {
     label: "Expense",

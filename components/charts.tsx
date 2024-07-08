@@ -67,7 +67,6 @@ export const SpendingTrendChart = ({data}: {data: string}) => {
       <Tooltip 
         content={({ active, payload }) => {
           if (active && payload && payload.length) {
-            console.log(payload)
             return (
               <div className="rounded-lg border bg-background p-2 shadow-sm">
                 <div className="flex flex-col gap-2">

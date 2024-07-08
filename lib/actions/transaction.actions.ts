@@ -142,11 +142,14 @@ export const getTopSpendingCategories = async () => {
   try {
     const data = await getTransactionsCached()
 
-    let top: any = {}
+    let top: any = {};
+
+    ['Income', 'Expenses', 'Food', 'Transport', 'Bills', 'Entertainment', 'Other'].forEach(i => {
+      top[i] = 0;
+    })
+
     data.forEach(({category, amount}: {category: string, amount: number}) => {
-      if (amount < 0 && top[category] === undefined) {
-        top[category] = Math.abs(amount)
-      } else if (amount < 0 && top[category] !== undefined) {
+      if (amount < 0) {
         top[category] -= amount;
       }
     })

@@ -1,7 +1,7 @@
 import { Card, CardHeader, CardDescription, CardTitle, CardContent } from "@/components/ui/card"
 import {auth} from '@clerk/nextjs/server'
 import {getSpendingTrend} from '@/lib/actions/transaction.actions'
-import {SpendingTrendChart} from '@/components/charts'
+import {SpendingTrendChart} from '@/components/charts/spending-trend'
 
 
 const SpendingTrend = async ({analytics}: {analytics: any}) => {

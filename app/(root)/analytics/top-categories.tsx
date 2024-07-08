@@ -1,7 +1,7 @@
 import { Card, CardHeader, CardDescription, CardTitle, CardContent } from "@/components/ui/card"
 import {auth} from '@clerk/nextjs/server'
 import {getTopSpendingCategories} from '@/lib/actions/transaction.actions'
-import {TopSpendingCategories} from '@/components/charts'
+import {TopSpendingCategories} from '@/components/charts/top-categories'
 
 
 const TopCategories = async ({analytics}: {analytics: any}) => {
