@@ -24,7 +24,9 @@ export const createTransaction = async(transaction: CreateTransactionProps) => {
     }))
   } catch (e) {
     console.log(e)
-    throw new Error(typeof e === 'string' ? e : JSON.stringify(e))
+    return {
+      error: true,
+    }
   }
 }
 
@@ -41,7 +43,9 @@ export const getTransactions = async (query?: {startDate?: number, finishDate?: 
       return JSON.parse(JSON.stringify(allTransactions));
     } catch (e) {
       console.log(e)
-      throw new Error(typeof e === 'string' ? e : JSON.stringify(e))
+      return {
+        error: true
+      }
     }
   }
 
@@ -67,7 +71,7 @@ export const getTransactions = async (query?: {startDate?: number, finishDate?: 
 
   } catch (e) {
     console.log(e);
-    throw new Error(typeof e === 'string' ? e : JSON.stringify(e))
+    return {error: true}
   }
 
 }

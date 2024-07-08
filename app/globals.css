@@ -76,6 +76,22 @@ pre {
   border-radius: 10px;
 }
  
+pre {
+  @apply max-w-[95vw]
+}
 pre [data-line] {
   padding: 0 1rem;
+}
+
+::-webkit-scrollbar {
+  background: transparent;
+  height: 8px;
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 0.25rem;
+  background: #0d1526;
+}
+::-webkit-scrollbar-track {
+  background: #020817;
 }

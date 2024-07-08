@@ -5,7 +5,6 @@ import {getDashboardData} from '@/lib/actions/dashboard.actions'
 
 const Dashboard = async () => {
   const dashboardData = await getDashboardData()
-  console.log(dashboardData)
   return (
     <>
       <div className="grid md:grid-cols-3 gap-6">

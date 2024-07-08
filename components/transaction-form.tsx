@@ -56,12 +56,20 @@ const TransactionForm = ({ onClose, type, transaction}: { onClose: () => void; t
         createdAt: new Date(),
         description: values.description
       }
-      await createTransaction(transactionProps);
-      onClose()
-      toast({
-        title: 'Created a new transaction',
-        description: transactionProps.description
-      })
+      const createdTransaction = await createTransaction(transactionProps);
+      if (!createdTransaction.error) {
+        onClose()
+        toast({
+          title: 'Created a new transaction',
+          description: transactionProps.description
+        })
+      } else {
+        toast({
+          variant: 'destructive',
+          title: 'An error occured',
+          description: transactionProps.description
+        })
+      }
     } else if (type === 'Edit' && transaction !== undefined) {
       const action = await editTransaction({
         transactionID: transaction._id,

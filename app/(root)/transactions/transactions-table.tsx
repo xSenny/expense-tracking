@@ -16,8 +16,6 @@ const TransactionsTable = async ({searchParams}: SearchParamProps) => {
     transactions = await getTransactionsCached()
   }
   
-  
-
   return (
     <div>
       <DataTable columns={columns} data={transactions}/>

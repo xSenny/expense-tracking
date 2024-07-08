@@ -50,8 +50,6 @@ const TransactionFilter = () => {
 
     const newUrl = `/transactions?${createSearchParams(params)}`
     router.replace(newUrl, {scroll: false})
-
-    console.log(params)
   }
 
   return (

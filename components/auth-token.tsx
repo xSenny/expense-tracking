@@ -3,17 +3,9 @@
 import {useState, useEffect} from 'react'
 
 import {Eye, EyeOff} from 'lucide-react'
-import { Button } from './ui/button'
 
 const AuthToken = ({token}: {token: string}) => {
-
-  
-
   const [shown, setShown] = useState(false)
-
-  useEffect(() => {
-    console.log(token)
-  }, [])
 
   return (
     <div className='flex p-4 items-center gap-4 flex-col lg:flex-row'>

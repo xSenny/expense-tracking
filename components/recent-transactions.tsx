@@ -2,7 +2,6 @@ import { CardContent, Card, CardHeader, CardDescription, CardTitle } from "./ui/
 import {formatDateTime} from '@/lib/utils'
 const RecentTransactions = ({data}: {data: string}) => {
   const parsedData = JSON.parse(data)
-  console.log(parsedData)
   return (
     <Card className="w-full">
       <CardHeader>

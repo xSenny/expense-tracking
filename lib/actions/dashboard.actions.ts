@@ -5,6 +5,9 @@ import {getTransactionsCached} from './transaction.actions'
 export const getDashboardData = async () => {
   try {
     const allTransactions = await getTransactionsCached();
+    if (allTransactions.error) {
+      throw new Error('Error receiving transactions')
+    }
 
     let income = 0, expenses = 0;
     allTransactions.forEach(({amount}: {amount: number}) => {
@@ -53,6 +56,8 @@ export const getDashboardData = async () => {
 
   } catch (e) {
     console.log(e);
-    throw new Error(typeof e === 'string' ? e : JSON.stringify(e))
+    return {
+      error: true
+    }
   }
 }

@@ -21,7 +21,6 @@ const chartConfig = {
 } satisfies ChartConfig
 
 export function SpendingTrendChart({data}: {data: string}) {
-  console.log(data)
   return (
     <ChartContainer config={chartConfig} className="aspect-auto h-[250px] w-full">
       <AreaChart
