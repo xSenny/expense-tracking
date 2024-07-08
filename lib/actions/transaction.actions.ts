@@ -1,11 +1,9 @@
 'use server'
-import { CreateTransactionProps, ExpenseIncomeTrack } from "@/types";
+import { CreateTransactionProps } from "@/types";
 import { connectToDatabase } from "../database";
 import Transaction from "../database/models/transaction.model";
 import {cache} from 'react'
 import {revalidatePath} from 'next/cache'
-import queryString from "query-string";
-import { formatMonth } from "../utils";
 import { auth } from "@clerk/nextjs/server";
 
 export const createTransaction = async(transaction: CreateTransactionProps) => {

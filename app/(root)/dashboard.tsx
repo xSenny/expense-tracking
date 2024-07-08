@@ -2,10 +2,6 @@ import DataCard from "@/components/card";
 import { MonthlyBreakdown } from "@/components/charts/monthly-breakdown";
 import RecentTransactions from '@/components/recent-transactions'
 import {getDashboardData} from '@/lib/actions/dashboard.actions'
-import { auth } from '@clerk/nextjs/server';
-import dynamic from 'next/dynamic'
-
-
 
 const Dashboard = async () => {
   const dashboardData = await getDashboardData()

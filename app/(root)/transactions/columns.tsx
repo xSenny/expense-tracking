@@ -61,10 +61,10 @@ export const columns: ColumnDef<Transaction>[] = [
   {
     id: "actions",
     cell: ({ row }) => {
-      const payment = row.original
+      const transaction = row.original
 
       return (
-        <TransactionMenu transaction={payment}/>
+        <TransactionMenu transaction={transaction}/>
       )
     },
   },

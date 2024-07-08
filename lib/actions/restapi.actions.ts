@@ -1,6 +1,4 @@
 'use server'
-
-import { auth } from "@clerk/nextjs/server";
 import { getTransactionsCached } from "./transaction.actions";
 import Transaction from "../database/models/transaction.model";
 import { connectToDatabase } from "../database";

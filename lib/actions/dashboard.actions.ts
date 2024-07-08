@@ -4,8 +4,6 @@ import {getTransactionsCached} from './transaction.actions'
 
 export const getDashboardData = async () => {
   try {
-
-
     const allTransactions = await getTransactionsCached();
 
     let income = 0, expenses = 0;

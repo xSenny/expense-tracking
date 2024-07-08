@@ -1,4 +1,3 @@
-'use client'
 import { CardContent, Card, CardHeader, CardDescription, CardTitle } from "./ui/card";
 
 type CardProps = {

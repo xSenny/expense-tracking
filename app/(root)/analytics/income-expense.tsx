@@ -1,12 +1,8 @@
 import { Card, CardHeader, CardDescription, CardTitle, CardContent } from "@/components/ui/card"
-import {auth} from '@clerk/nextjs/server'
-import {getSpendingVsIncome} from '@/lib/actions/transaction.actions'
-import {IncomeExpenses} from '@/components/charts'
 import { IncomeVsExpensesChart } from "@/components/charts/income-expenses"
 
 
 const IncomeExpenseChart = async ({analytics}: {analytics: any}) => {
-
 
   return(
     <>

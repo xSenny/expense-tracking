@@ -1,4 +1,3 @@
-import { auth } from "@clerk/nextjs/server";
 import {Suspense} from 'react'
 import {Skeleton } from '@/components/ui/skeleton'
 import {getSpendingTrend, getTopSpendingCategories, getSpendingVsIncome} from '@/lib/actions/transaction.actions'

@@ -1,5 +1,4 @@
 'use client'
-import React from 'react'
 import {Card, CardHeader, CardDescription, CardContent} from '@/components/ui/card'
 import {Label} from '@/components/ui/label'
 import {Popover, PopoverTrigger, PopoverContent} from '@/components/ui/popover'

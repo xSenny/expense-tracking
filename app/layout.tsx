@@ -4,8 +4,6 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/toaster"
-import Sidebar from '@/components/sidebar'
-import Header from '@/components/header'
 
 const inter = Inter({ subsets: ["latin"] });
 

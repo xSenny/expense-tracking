@@ -1,5 +1,3 @@
-import { auth } from '@clerk/nextjs/server';
-import React from 'react'
 import {getTransactionsCached} from '@/lib/actions/transaction.actions'
 import { DataTable } from "./data-table";
 import { columns } from './columns';

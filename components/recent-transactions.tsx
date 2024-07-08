@@ -1,4 +1,3 @@
-'use client'
 import { CardContent, Card, CardHeader, CardDescription, CardTitle } from "./ui/card";
 import {formatDateTime} from '@/lib/utils'
 const RecentTransactions = ({data}: {data: string}) => {

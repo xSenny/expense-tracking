@@ -1,9 +1,3 @@
-import Image from "next/image";
-import ThemeSelector from '@/components/theme-selector'
-import { DataTable } from "./data-table";
-import { columns, Transaction } from "./columns";
-import {Button} from '@/components/ui/button'
-import { auth } from "@clerk/nextjs/server";
 import AddTransaction from '@/components/add-transaction'
 import TransactionsTable from "./transactions-table";
 import {Suspense} from 'react'

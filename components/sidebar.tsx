@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import {Package2Icon, BellIcon, HomeIcon, FileTextIcon, LineChartIcon, BookMarked} from 'lucide-react'
-import { Button } from './ui/button'
 import ThemeSelector from './theme-selector'
 import {usePathname} from 'next/navigation'
 import {useEffect} from 'react'
@@ -10,7 +9,6 @@ import {useEffect} from 'react'
 const Sidebar = () => {
 
   const pathName = usePathname()
-
 
   return (
     <div className="hidden border-r bg-muted/40 lg:block min-h-screen w-[280px]">

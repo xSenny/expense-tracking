@@ -1,5 +1,3 @@
-import Image from "next/image";
-import ThemeSelector from '@/components/theme-selector'
 import Dashboard from './dashboard'
 import {Suspense} from 'react'
 import {Skeleton} from '@/components/ui/skeleton'
