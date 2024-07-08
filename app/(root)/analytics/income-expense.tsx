@@ -2,6 +2,7 @@ import { Card, CardHeader, CardDescription, CardTitle, CardContent } from "@/com
 import {auth} from '@clerk/nextjs/server'
 import {getSpendingVsIncome} from '@/lib/actions/transaction.actions'
 import {IncomeExpenses} from '@/components/charts'
+import { IncomeVsExpensesChart } from "@/components/charts/income-expenses"
 
 
 const IncomeExpenseChart = async ({analytics}: {analytics: any}) => {
@@ -14,7 +15,7 @@ const IncomeExpenseChart = async ({analytics}: {analytics: any}) => {
           <CardTitle>Monthly Income vs Expense chart</CardTitle>
         </CardHeader>
         <CardContent className="flex justify-center">
-          <IncomeExpenses data={JSON.stringify(analytics)}/>
+          <IncomeVsExpensesChart data={JSON.stringify(analytics)}/>
         </CardContent>
       </Card>
     </>

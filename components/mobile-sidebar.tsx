@@ -7,7 +7,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
-import {Package2Icon, HomeIcon, FileTextIcon, LineChartIcon} from 'lucide-react'
+import {Package2Icon, HomeIcon, FileTextIcon, LineChartIcon, BookMarked} from 'lucide-react'
 import Sidebar from './sidebar'
 import Link from 'next/link'
 import ThemeSelector from "./theme-selector"
@@ -66,6 +66,16 @@ const MobileSidebar = () => {
                     >
                       <LineChartIcon className="h-4 w-4" />
                       Analytics
+                    </Link>
+                    <Link
+                      href="/docs"
+                      className={`flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary ${
+                        pathName === '/docs' && 'bg-muted text-primary '
+                      }`}
+                      prefetch={false}
+                    >
+                      <BookMarked className="h-4 w-4" />
+                      Docs
                     </Link>
                   </nav>
                 </div>
