@@ -28,6 +28,7 @@ export const getDashboardData = async () => {
       return {
         month: d.toLocaleString('default', {month: 'short'}),
         spending: 0,
+        income: 0
       }
     }).reverse();
 
@@ -37,6 +38,8 @@ export const getDashboardData = async () => {
       if (month >= 0 && month < 12) {
         if (i.amount < 0) {
           data[11 - month].spending += Math.abs(i.amount)
+        } else {
+          data[11 - month].income += i.amount
         }
       }
     })
