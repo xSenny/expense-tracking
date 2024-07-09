@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
+import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts"
 
 import {
   ChartConfig,
@@ -15,14 +15,13 @@ import {
 
 
 const chartConfig = {
-
-  income: {
-    label: "Income",
-    color: "hsl(var(--chart-5))",
-  },
   expense: {
     label: "Expense",
     color: "hsl(var(--chart-2))",
+  },
+  income: {
+    label: "Income",
+    color: "hsl(var(--chart-5))",
   },
 } satisfies ChartConfig
 
@@ -38,18 +37,6 @@ export function IncomeVsExpensesChart({data}: {data: string}) {
         >
           <AreaChart data={filteredData}>
             <defs>
-              <linearGradient id="fillExpense" x1="0" y1="0" x2="0" y2="1">
-                <stop
-                  offset="5%"
-                  stopColor="var(--color-expense)"
-                  stopOpacity={0.8}
-                />
-                <stop
-                  offset="95%"
-                  stopColor="var(--color-expense)"
-                  stopOpacity={0.1}
-                />
-              </linearGradient>
               <linearGradient id="fillIncome" x1="0" y1="0" x2="0" y2="1">
                 <stop
                   offset="5%"
@@ -59,6 +46,18 @@ export function IncomeVsExpensesChart({data}: {data: string}) {
                 <stop
                   offset="95%"
                   stopColor="var(--color-income)"
+                  stopOpacity={0.1}
+                />
+              </linearGradient>
+              <linearGradient id="fillExpense" x1="0" y1="0" x2="0" y2="1">
+                <stop
+                  offset="5%"
+                  stopColor="var(--color-expense)"
+                  stopOpacity={0.8}
+                />
+                <stop
+                  offset="95%"
+                  stopColor="var(--color-expense)"
                   stopOpacity={0.1}
                 />
               </linearGradient>
@@ -72,28 +71,29 @@ export function IncomeVsExpensesChart({data}: {data: string}) {
               minTickGap={32}
             />
             <ChartTooltip
-              cursor={false}
+              // cursor={false}
               content={
                 <ChartTooltipContent
-                  labelFormatter={(value) => {
-                    return value
-                  }}
                   indicator="dot"
                 />
               }
             />
-            <Area
-              dataKey="income"
-              type="natural"
-              fill="url(#fillIncome)"
-              stroke="var(--color-income)"
-              stackId="a"
-            />
+
+            <YAxis />
+            
             <Area
               dataKey="expense"
-              type="natural"
+              // type="natural"
               fill="url(#fillExpense)"
               stroke="var(--color-expense)"
+              stackId="a"
+            />
+
+            <Area
+              dataKey="income"
+              // type="natural"
+              fill="url(#fillIncome)"
+              stroke="var(--color-income)"
               stackId="a"
             />
             <ChartLegend content={<ChartLegendContent />} />
