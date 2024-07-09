@@ -20,6 +20,8 @@ The Expense Tracking Application, currently available at [Expense Tracking](http
 
 
 # Setup and running instructions
+- Before starting, make sure you have installed atleast next.js v14.2.4, install if needed. Use this command: `npx next --version` to check nextjs's version.
+
 1. Fork this project, then clone it locally;
 2. Run `npm install` to install all of the dependencies;
 3. Create an `.env.local` file in the root folder to store all the enviroment variables. Here is how it should look for start.
