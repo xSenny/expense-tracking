@@ -4,7 +4,7 @@ import {Suspense} from 'react'
 import {Skeleton } from '@/components/ui/skeleton'
 import {SearchParamProps} from '@/types'
 
-const Transactions = async ({searchParams}: SearchParamProps) => {
+const Transactions = ({searchParams}: SearchParamProps) => {
 
   return (
     <div className="w-full flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">

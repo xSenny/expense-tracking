@@ -1,7 +1,7 @@
 import Dashboard from './dashboard'
 import {Suspense} from 'react'
 import {Skeleton} from '@/components/ui/skeleton'
-const DashboardPage = async () => {
+const DashboardPage = () => {
 
   return (
     <div className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">

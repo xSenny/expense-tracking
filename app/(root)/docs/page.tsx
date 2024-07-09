@@ -3,7 +3,7 @@ import {Code} from './code'
 import AuthToken from '@/components/auth-token'
 const HOSTNAME = process.env.HOSTNAME
 
-const DocsPage = async () => {
+const DocsPage = () => {
 
   const key = getKey()
 
