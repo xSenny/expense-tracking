@@ -4,6 +4,8 @@ import { columns } from './columns';
 import TransactionFilter from '@/components/transaction-filter'
 import {SearchParamProps} from '@/types'
 import {Transaction} from './columns'
+
+
 const TransactionsTable = async ({searchParams}: SearchParamProps) => {
   let transactions: Transaction[];
   if (searchParams.category || searchParams.finishDate || searchParams.startDate) {
@@ -17,7 +19,7 @@ const TransactionsTable = async ({searchParams}: SearchParamProps) => {
   }
   
   return (
-    <div>
+    <div className="">
       <DataTable columns={columns} data={transactions}/>
       <TransactionFilter />
     </div>
