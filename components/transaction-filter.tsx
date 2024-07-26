@@ -7,7 +7,7 @@ import {Input} from '@/components/ui/input'
 import {Select, SelectTrigger, SelectContent, SelectItem, SelectValue} from '@/components/ui/select'
 import { Calendar } from "@/components/ui/calendar"
 import {useState, useEffect} from 'react'
-import {formatDateTime, createSearchParams} from '@/lib/utils'
+import {formatDateTime, createSearchParams, categories} from '@/lib/utils'
 import {useRouter} from 'next/navigation'
 
 const TransactionFilter = () => {
@@ -93,13 +93,9 @@ const TransactionFilter = () => {
                 <SelectValue placeholder="All Categories" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="Income">Income</SelectItem>
-                <SelectItem value="Expenses">Expenses</SelectItem>
-                <SelectItem value="Food">Food</SelectItem>
-                <SelectItem value="Transport">Transport</SelectItem>
-                <SelectItem value="Bills">Bills</SelectItem>
-                <SelectItem value="Entertainment">Entertainment</SelectItem>
-                <SelectItem value="Other">Other</SelectItem>
+                {categories.map(({label, value}) => (
+                  <SelectItem value={value}>{label}</SelectItem>
+                ))}
                 <SelectItem value="all">All</SelectItem>
               </SelectContent>
             </Select>
