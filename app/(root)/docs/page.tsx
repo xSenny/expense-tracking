@@ -8,7 +8,7 @@ const DocsPage = () => {
   const key = getKey()
 
   return (
-    <main className="p-8 flex flex-col gap-8 flex-wrap">
+    <main className="p-8 flex flex-col gap-8 flex-wrap w-[100vw] lg:w-full">
       <h1 className="text-3xl font-bold">API Documentation: Fetching Transactions</h1>
       <div className="flex flex-col gap-2">
         <p className="text-secondary-foreground">Welcome to the API documentation for fetching transactions. This guide will help you understand how to retrieve your transaction list using the GET request to the following endpoint:</p>
