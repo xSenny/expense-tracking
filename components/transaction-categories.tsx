@@ -6,7 +6,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuLabel, DropdownMenuSub, DropdownMenuSubTrigger, 
-  DropdownMenuSubContent
+  DropdownMenuSubContent, DropdownMenuRadioGroup, DropdownMenuRadioItem
 } from "./ui/dropdown-menu"
 import {
   Command,
@@ -48,65 +48,74 @@ const TransactionCategories = ({value, onChangeHandler}: {value: string, onChang
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-[200px]">
         <DropdownMenuLabel>Categories</DropdownMenuLabel>
-        <DropdownMenuSub>
-          <DropdownMenuSubTrigger>
-            Income
-          </DropdownMenuSubTrigger>
-          <DropdownMenuSubContent className="p-0">
-            <Command>
-              <CommandInput
-                placeholder="Filter categories..."
-              />
-              <CommandList>
-                <CommandEmpty>No category found.</CommandEmpty>
-                <CommandGroup>
-                  {categories.filter(({type}) => type === 'income')?.map(({label, value}) => (
-                    <CommandItem
-                      key={value}
-                      value={value}
-                      onSelect={() => {
-                        onChangeHandler(value)
-                        setOpen(false)
-                      }}
-                    >
-                      {label}
-                    </CommandItem>
-                  ))}
-                </CommandGroup>
-              </CommandList>
-            </Command>
-          </DropdownMenuSubContent>
-        </DropdownMenuSub>
+        <div className="hidden lg:block">
+          <DropdownMenuSub>
+            <DropdownMenuSubTrigger>
+              Income
+            </DropdownMenuSubTrigger>
+            <DropdownMenuSubContent className="p-0">
+              <Command>
+                <CommandInput
+                  placeholder="Filter categories..."
+                />
+                <CommandList>
+                  <CommandEmpty>No category found.</CommandEmpty>
+                  <CommandGroup>
+                    {categories.filter(({type}) => type === 'income')?.map(({label, value}) => (
+                      <CommandItem
+                        key={value}
+                        value={value}
+                        onSelect={() => {
+                          onChangeHandler(value)
+                          setOpen(false)
+                        }}
+                      >
+                        {label}
+                      </CommandItem>
+                    ))}
+                  </CommandGroup>
+                </CommandList>
+              </Command>
+            </DropdownMenuSubContent>
+          </DropdownMenuSub>
 
-        <DropdownMenuSub>
-          <DropdownMenuSubTrigger>
-            Expense
-          </DropdownMenuSubTrigger>
-          <DropdownMenuSubContent className="p-0">
-            <Command>
-              <CommandInput
-                placeholder="Filter categories..."
-              />
-              <CommandList>
-                <CommandEmpty>No category found.</CommandEmpty>
-                <CommandGroup>
-                  {categories.filter(({type}) => type === 'expense')?.map(({label, value}) => (
-                    <CommandItem
-                      key={value}
-                      value={value}
-                      onSelect={() => {
-                        onChangeHandler(value)
-                        setOpen(false)
-                      }}
-                    >
-                      {label}
-                    </CommandItem>
-                  ))}
-                </CommandGroup>
-              </CommandList>
-            </Command>
-          </DropdownMenuSubContent>
-        </DropdownMenuSub>
+          <DropdownMenuSub>
+            <DropdownMenuSubTrigger>
+              Expense
+            </DropdownMenuSubTrigger>
+            <DropdownMenuSubContent className="p-0">
+              <Command>
+                <CommandInput
+                  placeholder="Filter categories..."
+                />
+                <CommandList>
+                  <CommandEmpty>No category found.</CommandEmpty>
+                  <CommandGroup>
+                    {categories.filter(({type}) => type === 'expense')?.map(({label, value}) => (
+                      <CommandItem
+                        key={value}
+                        value={value}
+                        onSelect={() => {
+                          onChangeHandler(value)
+                          setOpen(false)
+                        }}
+                      >
+                        {label}
+                      </CommandItem>
+                    ))}
+                  </CommandGroup>
+                </CommandList>
+              </Command>
+            </DropdownMenuSubContent>
+          </DropdownMenuSub>
+        </div>
+        <div className="block lg:hidden">
+          <DropdownMenuRadioGroup value={value} onValueChange={onChangeHandler}>
+            {categories.map(({value, label}) => (
+              <DropdownMenuRadioItem value={value}>{label}</DropdownMenuRadioItem>
+            ))}
+          </DropdownMenuRadioGroup>
+        </div>
       </DropdownMenuContent>
     </DropdownMenu>
   )
