@@ -155,8 +155,8 @@ export const getTopSpendingCategories = async () => {
 
     let top: any = {};
 
-    ['Income', 'Expenses', 'Food', 'Transport', 'Bills', 'Entertainment', 'Other'].forEach(i => {
-      top[i] = 0;
+    categories.filter(({type}) => type === 'expense')?.forEach(({value}) => {
+      top[value] = 0;
     })
 
     data.forEach(({category, amount}: {category: string, amount: number}) => {
