@@ -55,3 +55,41 @@ export function createSearchParams(paramsList: Param[]): string {
 
   return qs.stringify(params);
 }
+
+export const categories = [
+  {
+    label: 'Salary',
+    value: 'Salary',
+    type: 'income'
+  },
+  {
+    label: 'Income',
+    value: 'Income',
+    type: 'income'
+  },
+  {
+    label: 'Food',
+    value: 'Food',
+    type: 'expense'
+  },
+  {
+    label: 'Transport',
+    value: 'Transport',
+    type: 'expense'
+  },
+  {
+    label: 'Bills',
+    value: 'Bills',
+    type: 'expense'
+  },
+  {
+    label: 'Entertainment',
+    value: 'Entertainment',
+    type: 'expense'
+  },
+  {
+    label: 'Expense',
+    value: 'Expense',
+    type: 'expense'
+  },
+]

@@ -5,37 +5,104 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuLabel, DropdownMenuSub, DropdownMenuSubTrigger, 
+  DropdownMenuSubContent
+} from "./ui/dropdown-menu"
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command"
+import { Button } from "./ui/button"
+import { FormControl } from "./ui/form"
+import { cn, categories } from "@/lib/utils"
+import { ChevronsUpDown } from "lucide-react"
 
-const TransactionCategories = ({value, onChangeHandler}: {value: string, onChangeHandler: () => void}) => {
+
+const TransactionCategories = ({value, onChangeHandler}: {value: string, onChangeHandler: (val: string) => void}) => {
   return (
-    <Select onValueChange={onChangeHandler} defaultValue={value}>
-      <SelectTrigger className="">
-        <SelectValue placeholder="Category" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectItem  value={'Income'} className={" p-regular-14"}>
-          Income
-        </SelectItem>
-        <SelectItem  value={'Expenses'} className={" p-regular-14"}>
-          Expenses
-        </SelectItem>
-        <SelectItem  value={'Food'} className={" p-regular-14"}>
-          Food
-        </SelectItem>
-        <SelectItem  value={'Transport'} className={" p-regular-14"}>
-          Transport
-        </SelectItem>
-        <SelectItem  value={'Bills'} className={" p-regular-14"}>
-          Bills
-        </SelectItem>
-        <SelectItem  value={'Entertainment'} className={" p-regular-14"}>
-          Entertainment
-        </SelectItem>
-        <SelectItem  value={'Other'} className={" p-regular-14"}>
-          Other
-        </SelectItem>
-      </SelectContent>
-    </Select>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <FormControl>
+          <Button
+            variant={'outline'}
+            role="combobox"
+            className={cn(
+              "w-[200px] justify-between",
+              !value && "text-muted-foreground"
+            )}
+            >
+              {value ? categories.find(
+                (category) => category.value === value
+              )?.label : 'Select a category'}
+              <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50"/>
+            </Button>
+        </FormControl>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end" className="w-[200px]">
+        <DropdownMenuLabel>Categories</DropdownMenuLabel>
+        <DropdownMenuSub>
+          <DropdownMenuSubTrigger>
+            Income
+          </DropdownMenuSubTrigger>
+          <DropdownMenuSubContent className="p-0">
+            <Command>
+              <CommandInput
+                placeholder="Filter categories..."
+              />
+              <CommandList>
+                <CommandEmpty>No category found.</CommandEmpty>
+                <CommandGroup>
+                  {categories.filter(({type}) => type === 'income')?.map(({label, value}) => (
+                    <CommandItem
+                      key={value}
+                      value={value}
+                      onSelect={() => {
+                        onChangeHandler(value)
+                      }}
+                    >
+                      {label}
+                    </CommandItem>
+                  ))}
+                </CommandGroup>
+              </CommandList>
+            </Command>
+          </DropdownMenuSubContent>
+        </DropdownMenuSub>
+
+        <DropdownMenuSub>
+          <DropdownMenuSubTrigger>
+            Expense
+          </DropdownMenuSubTrigger>
+          <DropdownMenuSubContent className="p-0">
+            <Command>
+              <CommandInput
+                placeholder="Filter categories..."
+              />
+              <CommandList>
+                <CommandEmpty>No category found.</CommandEmpty>
+                <CommandGroup>
+                  {categories.filter(({type}) => type === 'expense')?.map(({label, value}) => (
+                    <CommandItem
+                      key={value}
+                      value={value}
+                      onSelect={() => {
+                        onChangeHandler(value)
+                      }}
+                    >
+                      {label}
+                    </CommandItem>
+                  ))}
+                </CommandGroup>
+              </CommandList>
+            </Command>
+          </DropdownMenuSubContent>
+        </DropdownMenuSub>
+      </DropdownMenuContent>
+    </DropdownMenu>
   )
 }
 

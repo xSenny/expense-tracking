@@ -8,7 +8,7 @@ export type UserProps = {
 
 export type CreateTransactionProps = {
   amount: number,
-  category: 'Income' | 'Expenses' | 'Food' | 'Transport' | 'Bills' | 'Entertainment' | 'Other',
+  category: string,
   createdAt: Date,
   description: string
 }

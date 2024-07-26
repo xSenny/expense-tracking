@@ -14,6 +14,8 @@ export const createTransaction = async(transaction: CreateTransactionProps) => {
     const {sessionClaims} = auth();
     const user = sessionClaims?.userId as string;
 
+    
+
     const createdTransaction = await Transaction.create({...transaction, user})
 
     revalidatePath('/transactions')
