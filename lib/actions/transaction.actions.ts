@@ -5,6 +5,7 @@ import Transaction from "../database/models/transaction.model";
 import {cache} from 'react'
 import {revalidatePath} from 'next/cache'
 import { auth } from "@clerk/nextjs/server";
+import { categories } from '@/lib/utils'
 
 export const createTransaction = async(transaction: CreateTransactionProps) => {
 
@@ -14,7 +15,13 @@ export const createTransaction = async(transaction: CreateTransactionProps) => {
     const {sessionClaims} = auth();
     const user = sessionClaims?.userId as string;
 
-    
+    const category = transaction.category;
+
+    const type = categories.find((item) => item.value === category)?.type;
+
+    if ((type === 'expense' && transaction.amount > 0) || (type === 'income' && transaction.amount < 0)) {
+      transaction.amount*=-1;
+    }
 
     const createdTransaction = await Transaction.create({...transaction, user})
 
