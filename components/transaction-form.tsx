@@ -120,9 +120,7 @@ const TransactionForm = ({ onClose, type, transaction}: { onClose: () => void; t
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Category</FormLabel>
-                <FormControl>
-                  <TransactionCategories value={field.value} onChangeHandler={field.onChange} />
-                </FormControl>
+                <TransactionCategories value={field.value} onChangeHandler={(s) => field.onChange(s)} />
                 <FormDescription>
                   Select your specific category.
                 </FormDescription>
