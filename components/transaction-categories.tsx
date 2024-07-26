@@ -20,11 +20,15 @@ import { Button } from "./ui/button"
 import { FormControl } from "./ui/form"
 import { cn, categories } from "@/lib/utils"
 import { ChevronsUpDown } from "lucide-react"
+import { useState } from "react"
 
 
 const TransactionCategories = ({value, onChangeHandler}: {value: string, onChangeHandler: (val: string) => void}) => {
+
+  const [open, setOpen] = useState(false)
+
   return (
-    <DropdownMenu>
+    <DropdownMenu open={open} onOpenChange={setOpen}>
       <DropdownMenuTrigger asChild>
         <FormControl>
           <Button
@@ -62,6 +66,7 @@ const TransactionCategories = ({value, onChangeHandler}: {value: string, onChang
                       value={value}
                       onSelect={() => {
                         onChangeHandler(value)
+                        setOpen(false)
                       }}
                     >
                       {label}
@@ -91,6 +96,7 @@ const TransactionCategories = ({value, onChangeHandler}: {value: string, onChang
                       value={value}
                       onSelect={() => {
                         onChangeHandler(value)
+                        setOpen(false)
                       }}
                     >
                       {label}
